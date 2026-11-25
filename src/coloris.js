@@ -218,9 +218,11 @@
           }
 
           if (update) {
+            const formatLegend = getEl('clr-format-legend');
             const openLabel = getEl('clr-open-label');
             const swatchLabel = getEl('clr-swatch-label');
 
+            formatLegend.textContent = settings.a11y.format;
             openLabel.textContent = settings.a11y.open;
             swatchLabel.textContent = settings.a11y.swatch;
             closeButton.setAttribute('aria-label', settings.a11y.close);
@@ -988,7 +990,7 @@
       ]),
       createEl('div', { id: 'clr-format', className: 'clr-format' }, [
         createEl('fieldset', { className: 'clr-segmented' }, [
-          createEl('legend', {}, [settings.a11y.format]),
+          createEl('legend', { id: 'clr-format-legend' }, [settings.a11y.format]),
           createEl('input', { id: 'clr-f1', type: 'radio', name: 'clr-format', value: 'hex' }),
           createEl('label', { htmlFor: 'clr-f1' }, ['Hex']),
           createEl('input', { id: 'clr-f2', type: 'radio', name: 'clr-format', value: 'rgb' }),
